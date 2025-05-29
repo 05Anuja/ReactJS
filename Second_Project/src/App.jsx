@@ -1,13 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 
 const App = () => {
-  const [count, setCount] = useState(0)
+
+  // const handleSubmitBtn = () => {
+  //   alert("Form Submitted Successfully!!");
+  // }
+
+  const submtHandler = (e) => {
+    e.preventDefault();
+    console.log(e);
+    // console.log("Hello", e);
+  }
+
   return (
     <>
-      <h1 className="text-5xl text-center font-bold mt-44">Count: {count}</h1>
-      <div className="flex items-center justify-center gap-10 mt-10">
-        <button className="bg-blue-700 p-4 text-4xl rounded-xl" onClick={() => setCount(count + 1)}>Increment (+)</button>
-        <button className="bg-red-700 p-4 text-4xl rounded-xl" onClick={() => setCount(count - 1)}>Decrement (-)</button>
+      <div className="w-screen h-screen bg-black text-white">
+        <form onSubmit={(e) => {
+          submtHandler(e);
+        }} className="flex flex-col">
+          <input
+            type="text"
+            id="fname"
+            placeholder="Enter Your Name"
+            className="bg-white text-black text-xl m-5 px-4 py-3 rounded w-80"
+          />
+          <button  className="px-4 py-3 m-5 bg-emerald-700 rounded text-2xl w-80 font-semibold">Submit</button>
+        </form>
       </div>
     </>
   );
