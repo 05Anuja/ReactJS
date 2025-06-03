@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* index.css */
-
+/* 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -43,4 +43,30 @@ body {
 
 .button.logout {
   background-color: red;
+} */
+
+form {
+  height: 200px;
+  width: 300px;
+  border: 1px solid;
+  padding: 20px;
+  /* background-color: coral; */
+  margin: auto;
+  margin-top: 50px;
+}
+
+form input {
+  border: 1px solid;
+  margin: 2px;
+  padding: 3px;
+  border-radius: 2px;
+}
+
+input[type="submit"] {
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  background-color: coral;
 }
