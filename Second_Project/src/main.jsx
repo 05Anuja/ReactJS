@@ -7,6 +7,7 @@ import Task2 from "./Hooks/Task2.jsx";
 import Task3 from "./Hooks/Task3.jsx";
 import Task4 from "./Hooks/Task4.jsx";
 import Form from "./Form/Form.jsx";
+import Form2 from "./Form/Form2.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")).render(
     {/* <Task2 /> */}
     {/* <Task3 /> */}
     {/* <Task4/> */}
-    <Form />
+    {/* <Form /> */}
+    <Form2 />
   </StrictMode>
 );
