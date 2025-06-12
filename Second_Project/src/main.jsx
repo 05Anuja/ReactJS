@@ -11,6 +11,8 @@ import Form2 from "./Form/Form2.jsx";
 import CreateContext from "./UseContext/CreateContext.jsx";
 import UseContext from "./UseContext/UseContext.jsx";
 import UseContext2 from "./UseContext/UseContext2.jsx";
+import CreateToggle from "./ToggleTheme/CreateToggle.jsx";
+import UseToggle from "./ToggleTheme/UseToggle.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,9 +23,14 @@ createRoot(document.getElementById("root")).render(
     {/* <Task4/> */}
     {/* <Form /> */}
     {/* <Form2 /> */}
-    <CreateContext>
+    {/* <CreateContext>
       <UseContext/>
       <UseContext2/>
-    </CreateContext>
+    </CreateContext> */}
+
+      <CreateToggle>
+        <UseToggle/>
+      </CreateToggle>
+
   </StrictMode>
 );
