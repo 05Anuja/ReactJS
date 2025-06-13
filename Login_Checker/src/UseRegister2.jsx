@@ -1,28 +1,35 @@
 import React, { useContext, useState } from "react";
 import { RegisterContext } from "./CreateRegister";
 
-const UseRegister = () => {
+const UseRegister2 = () => {
   const [formData, setFormData] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
+  const { registerData } = useContext(RegisterContext);
+
   const getInputData = (event) => {
     setFormData((prevData) => ({
       ...prevData,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value, // ✅ FIXED
     }));
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // console.log(formData);
+
+    const isMatch = registerData.some(
+      (user) =>
+        user.username === formData.username &&
+        user.password === formData.password
+    );
+
+    setIsLoggedIn(isMatch);
   };
 
-  const { registerData } = useContext(RegisterContext);
   return (
     <>
       <form>
@@ -33,9 +40,6 @@ const UseRegister = () => {
           id="username"
           onInput={getInputData}
         />
-        <br /> <br />
-        <label htmlFor="email">Email: </label>
-        <input type="email" name="email" id="email" onInput={getInputData} />
         <br /> <br />
         <label htmlFor="password">Password: </label>
         <input
@@ -48,11 +52,13 @@ const UseRegister = () => {
         <button onClick={submitHandler}>LogIn</button>
       </form>
 
-      {/* {formData.username === registerData.username && formData.password === registerData.password && formData.email == registerData.email ? "Login Successfull" : "Login Failed"} */}
-
-      {isLoggedIn ? "Login Successfull" : "Login Failed! Please try again"}
+      {isLoggedIn !== null && (
+        <div style={{ marginTop: "1rem", fontWeight: "bold" }}>
+          {isLoggedIn ? "✅ LogIn Successful" : "❌ LogIn Failed"}
+        </div>
+      )}
     </>
   );
 };
 
-export default UseRegister;
+export default UseRegister2;

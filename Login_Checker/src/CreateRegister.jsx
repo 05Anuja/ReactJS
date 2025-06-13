@@ -23,7 +23,9 @@ const CreateRegister = ({children}) => {
             email: "kashti@gmail.com",
             password: "Kashti@2903",
         }
-    ]
+    ];
+
+    
   return (
     <>
         <RegisterContext.Provider value={{registerData}}>
