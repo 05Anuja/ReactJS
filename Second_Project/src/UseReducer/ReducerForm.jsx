@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 const reducer = (state, action) => {
     return {
@@ -12,6 +12,7 @@ const ReducerForm = () => {
     number: "",
   };
   const [formData, dispatch] = useReducer(reducer, initialState);
+  const [formDetails, setFormDetails] = useState(null);
 
   const inputHandler = (e) => {
     dispatch({name: e.target.name, value: e.target.value})
@@ -19,7 +20,8 @@ const ReducerForm = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
+    setFormDetails(formData);
   };
   return (
     <>
@@ -36,6 +38,14 @@ const ReducerForm = () => {
         <br />
         <button>Submit</button>
       </form>
+      {
+        formDetails && (
+            <>
+                <h1>{`Name: ${formDetails.name}`}</h1>
+                <h1>{`Number: ${formDetails.number}`}</h1>
+            </>
+        )
+      }
     </>
   );
 };
