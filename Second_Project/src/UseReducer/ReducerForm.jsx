@@ -1,0 +1,43 @@
+import React, { useReducer } from "react";
+
+const reducer = (state, action) => {
+    return {
+        ...state, [action.name] : action.value
+    }
+};
+
+const ReducerForm = () => {
+  const initialState = {
+    name: "",
+    number: "",
+  };
+  const [formData, dispatch] = useReducer(reducer, initialState);
+
+  const inputHandler = (e) => {
+    dispatch({name: e.target.name, value: e.target.value})
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+  return (
+    <>
+      <form action="" onSubmit={formSubmitHandler}>
+        <div>
+          <label htmlFor="name">First Name:</label>
+          <input type="text" id="name" name="name" onChange={inputHandler} />
+        </div>
+        <br />
+        <div>
+          <label htmlFor="number">Number:</label>
+          <input type="number" id="number" name="number" onChange={inputHandler} />
+        </div>
+        <br />
+        <button>Submit</button>
+      </form>
+    </>
+  );
+};
+
+export default ReducerForm;

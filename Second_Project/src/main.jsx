@@ -13,6 +13,8 @@ import UseContext from "./UseContext/UseContext.jsx";
 import UseContext2 from "./UseContext/UseContext2.jsx";
 import CreateToggle from "./ToggleTheme/CreateToggle.jsx";
 import UseToggle from "./ToggleTheme/UseToggle.jsx";
+import ReducerTask1 from "./UseReducer/ReducerTask1.jsx";
+import ReducerForm from "./UseReducer/ReducerForm.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -28,9 +30,12 @@ createRoot(document.getElementById("root")).render(
       <UseContext2/>
     </CreateContext> */}
 
-      <CreateToggle>
+      {/* <CreateToggle>
         <UseToggle/>
-      </CreateToggle>
+      </CreateToggle> */}
+
+        {/* <ReducerTask1 /> */}
+        <ReducerForm />
 
   </StrictMode>
 );
