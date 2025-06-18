@@ -1,51 +1,122 @@
 import React, { useReducer, useState } from "react";
 
 const reducer = (state, action) => {
-    return {
-        ...state, [action.name] : action.value
-    }
+  switch (action.type) {
+    case "DETAILS":
+      return {
+        ...state,
+        [action.name]: action.value,
+        errors: {
+          ...state.errors,
+          [action.name]: "",
+        },
+      };
+    case "SET_ERRORS":
+      return {
+        ...state,
+        errors: action.errors,
+      };
+    default:
+      return state;
+  }
 };
 
 const ReducerForm = () => {
   const initialState = {
     name: "",
-    number: "",
+    email: "",
+    password: "",
+    errors: {
+      name: "",
+      email: "",
+      password: "",
+    },
   };
   const [formData, dispatch] = useReducer(reducer, initialState);
-  const [formDetails, setFormDetails] = useState(null);
+  // const [formDetails, setFormDetails] = useState(null);
 
   const inputHandler = (e) => {
-    dispatch({name: e.target.name, value: e.target.value})
+    dispatch({ type: "DETAILS", name: e.target.name, value: e.target.value });
   };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    // console.log(formData);
-    setFormDetails(formData);
+    console.log(formData);
+    // setFormDetails(formData);
+    const errors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+    if (formData.name === "") {
+      errors.name = "This field is required";
+    }
+
+    if (formData.email === "") {
+      errors.email = "This field is required";
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Invalid Email Format. Ex. 'test@email.com'";
+    }
+    
+    if (formData.password === "") {
+      errors.password = "This field is required";
+    } else if (!passwordRegex.test(formData.password)) {
+      errors.password = "Password must be at least 8 characters and include uppercase, number, and special character";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      dispatch({
+        type: "SET_ERRORS",
+        errors,
+      });
+    } else {
+      console.log("Form Submitted Successfully!");
+    }
   };
   return (
     <>
       <form action="" onSubmit={formSubmitHandler}>
         <div>
-          <label htmlFor="name">First Name:</label>
+          <label htmlFor="name">Enter Your Full Name:</label>
           <input type="text" id="name" name="name" onChange={inputHandler} />
+          {formData.errors.name && (
+            <small style={{ color: "red" }}>{formData.errors.name}</small>
+          )}
         </div>
         <br />
         <div>
-          <label htmlFor="number">Number:</label>
-          <input type="number" id="number" name="number" onChange={inputHandler} />
+          <label htmlFor="email">Enter Your Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            onChange={inputHandler}
+          />
+          {formData.errors.email && (
+            <small style={{ color: "red" }}>{formData.errors.email}</small>
+          )}
+        </div>
+        <br />
+        <div>
+          <label htmlFor="password">Enter Your Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={inputHandler}
+          />
+          {formData.errors.password && (
+            <small style={{ color: "red" }}>{formData.errors.password}</small>
+          )}
         </div>
         <br />
         <button>Submit</button>
       </form>
-      {
-        formDetails && (
-            <>
-                <h1>{`Name: ${formDetails.name}`}</h1>
-                <h1>{`Number: ${formDetails.number}`}</h1>
-            </>
-        )
-      }
+      {/* {formDetails && (
+        <>
+          <h1>{`Name: ${formDetails.name}`}</h1>
+          <h1>{`Number: ${formDetails.email}`}</h1>
+        </>
+      )} */}
     </>
   );
 };
