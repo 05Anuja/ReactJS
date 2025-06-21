@@ -16,6 +16,7 @@ const reducer = (state, action) => {
           todo: [...state.todo, state.task],
           task: "",
         };
+        console.log("ST",submitTask.todo)
         return submitTask;
       }
       return state;
@@ -58,13 +59,15 @@ const ToDo = () => {
         <button>add task</button>
       </form>
 
-      <div id="taskLists">
-        <ul style={{ color: "white" }}>
-          {toDoData.todo.map((task, index) => {
-            return <li key={index}>{task}</li>;
-          })}
-        </ul>
-      </div>
+      {toDoData.todo.length > 0 && (
+        <div id="taskLists">
+          <ul>
+            {toDoData.todo.map((task, index) => {
+              return <li key={index}>{task}</li>;
+            })}
+          </ul>
+        </div>
+      )}
     </>
   );
 };
