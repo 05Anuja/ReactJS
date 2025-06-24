@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import App from "./App.jsx";
 import Task1 from "./Hooks/Task1.jsx";
 import Task2 from "./Hooks/Task2.jsx";
@@ -15,6 +14,7 @@ import CreateToggle from "./ToggleTheme/CreateToggle.jsx";
 import UseToggle from "./ToggleTheme/UseToggle.jsx";
 import ReducerTask1 from "./UseReducer/ReducerTask1.jsx";
 import ReducerForm from "./UseReducer/ReducerForm.jsx";
+import Parent from "./Task/Parent.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -35,7 +35,8 @@ createRoot(document.getElementById("root")).render(
       </CreateToggle> */}
 
         {/* <ReducerTask1 /> */}
-        <ReducerForm />
+        {/* <ReducerForm /> */}
+        <Parent/>
 
   </StrictMode>
 );

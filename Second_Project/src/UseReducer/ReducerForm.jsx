@@ -1,9 +1,9 @@
 import React, { useReducer, useState } from "react";
-
+import '../index.css'
 const reducer = (state, action) => {
   switch (action.type) {
     case "DETAILS":
-      return {
+      const details = {
         ...state,
         [action.name]: action.value,
         errors: {
@@ -11,11 +11,16 @@ const reducer = (state, action) => {
           [action.name]: "",
         },
       };
+      // console.log("State ", ...state.name);
+      // console.log("State Errors", ...state.errors);
+      return details; 
     case "SET_ERRORS":
-      return {
+      const setErrors = {
         ...state,
         errors: action.errors,
       };
+      console.log("Errors", action.errors)
+      return setErrors; 
     default:
       return state;
   }
@@ -45,7 +50,8 @@ const ReducerForm = () => {
     // setFormDetails(formData);
     const errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 
     if (formData.name === "") {
       errors.name = "This field is required";
@@ -56,11 +62,12 @@ const ReducerForm = () => {
     } else if (!emailRegex.test(formData.email)) {
       errors.email = "Invalid Email Format. Ex. 'test@email.com'";
     }
-    
+
     if (formData.password === "") {
       errors.password = "This field is required";
     } else if (!passwordRegex.test(formData.password)) {
-      errors.password = "Password must be at least 8 characters and include uppercase, number, and special character";
+      errors.password =
+        "Password must be at least 8 characters and include uppercase, number, and special character";
     }
 
     if (Object.keys(errors).length > 0) {
@@ -85,12 +92,7 @@ const ReducerForm = () => {
         <br />
         <div>
           <label htmlFor="email">Enter Your Email:</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            onChange={inputHandler}
-          />
+          <input type="text" id="email" name="email" onChange={inputHandler} />
           {formData.errors.email && (
             <small style={{ color: "red" }}>{formData.errors.email}</small>
           )}
