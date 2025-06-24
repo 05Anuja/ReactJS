@@ -15,6 +15,9 @@ import UseToggle from "./ToggleTheme/UseToggle.jsx";
 import ReducerTask1 from "./UseReducer/ReducerTask1.jsx";
 import ReducerForm from "./UseReducer/ReducerForm.jsx";
 import Parent from "./Task/Parent.jsx";
+import PracticeTask1 from "./Task/PracticeTask1.jsx";
+import PracticeTask2 from "./Task/PracticeTask2.jsx";
+import PracticeTask3 from "./Task/PracticeTask3.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -36,7 +39,10 @@ createRoot(document.getElementById("root")).render(
 
         {/* <ReducerTask1 /> */}
         {/* <ReducerForm /> */}
-        <Parent/>
+        {/* <Parent/> */}
+        {/* <PracticeTask1/> */}
+        {/* <PracticeTask2 /> */}
+        <PracticeTask3/>
 
   </StrictMode>
 );
