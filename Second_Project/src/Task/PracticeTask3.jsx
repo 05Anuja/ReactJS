@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const PracticeTask3 = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const checkLogIn = () => {
-        setIsLoggedIn(!isLoggedIn);
-    }
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const checkLogIn = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
   return (
     <>
-    <button onClick={checkLogIn}>{isLoggedIn ? "LogOut" : "LogIn"}</button>
-    {isLoggedIn ? "Welcome Back..!" : "Please Login"}
+      <button onClick={checkLogIn}>{isLoggedIn ? "LogOut" : "LogIn"}</button>
+      {isLoggedIn ? "Welcome Back..!" : "Please Login"}
     </>
-  )
-}
+  );
+};
 
-export default PracticeTask3
+export default PracticeTask3;
