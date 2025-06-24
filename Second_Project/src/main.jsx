@@ -17,6 +17,7 @@ import Parent from "./Task/Parent.jsx";
 import PracticeTask1 from "./Task/PracticeTask1.jsx";
 import PracticeTask2 from "./Task/PracticeTask2.jsx";
 import PracticeTask3 from "./Task/PracticeTask3.jsx";
+import ApiTesting from "./UseEffect/ApiTesting.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -41,7 +42,8 @@ createRoot(document.getElementById("root")).render(
         {/* <Parent/> */}
         {/* <PracticeTask1/> */}
         {/* <PracticeTask2 /> */}
-        <PracticeTask3/>
+        {/* <PracticeTask3/> */}
+        <ApiTesting />
 
   </StrictMode>
 );
