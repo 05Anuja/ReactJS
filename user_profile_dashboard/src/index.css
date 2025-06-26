@@ -33,9 +33,9 @@ body {
 
 .profile-card {
   flex: 1;
-  /* display: flex;
+  display: flex;
   justify-content: space-evenly;
-  align-items: center; */
+  align-items: center;
   background-color: #fff;
   padding: 15px;
   border-radius: 8px;

@@ -4,6 +4,7 @@ import Header from "./Dashboard/Header";
 import Sidebar from "./Dashboard/Sidebar";
 import ProfileCard from "./Dashboard/ProfileCard";
 import "./index.css";
+import ProfileCard2 from "./Dashboard/ProfileCard2";
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
           <Header />
           <div className="layout">
             <Sidebar />
-            <ProfileCard />
+            {/* <ProfileCard /> */}
+            <ProfileCard2 />
           </div>
         </div>
       </CreateUser>
