@@ -16,10 +16,17 @@ const reducer = (state, action) => {
           todo: [...state.todo, state.task],
           task: "",
         };
-        console.log("ST",submitTask.todo)
+        // console.log("ST", submitTask.todo);
         return submitTask;
       }
       return state;
+    case "DELETE_TASK":
+      const updatedTask = [...state.todo];
+      updatedTask.splice(action.index, 1);
+      return {
+        ...state,
+        todo: updatedTask,
+      };
     default:
       return state;
   }
@@ -38,7 +45,7 @@ const ToDo = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(toDoData);
+    // console.log(toDoData);
     dispatch({
       type: "SUBMIT_TASK",
     });
@@ -56,14 +63,24 @@ const ToDo = () => {
             onChange={inputHandler}
           />
         </div>
-        <button>add task</button>
+        <button id="taskBtn">add task</button>
       </form>
 
       {toDoData.todo.length > 0 && (
         <div id="taskLists">
           <ul>
             {toDoData.todo.map((task, index) => {
-              return <li key={index}>{task}</li>;
+              return (
+                <li key={index}>
+                  {task}
+                  <button
+                    onClick={() => dispatch({ type: "DELETE_TASK", index })}
+                    id="deleteBtn"
+                  >
+                    DELETE
+                  </button>
+                </li>
+              );
             })}
           </ul>
         </div>
