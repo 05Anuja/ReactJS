@@ -8,6 +8,7 @@ const UseContext = () => {
     <>
       <div className="card-container">
         {data.map((val) => (
+             
           <div key={val.id} className="card">
             <h3>{val.title}</h3>
             <p>{val.body}</p>
