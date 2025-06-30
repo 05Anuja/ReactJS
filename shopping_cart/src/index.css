@@ -1,0 +1,68 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  background-color: #f9f9f9;
+}
+
+/* Individual Card */
+.card {
+  width: 260px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  text-transform: capitalize;
+  margin-bottom: 16px;
+}
+
+/* Add to Cart Button */
+.cartBtn {
+  padding: 10px 16px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.cartBtn:hover {
+  background-color: #e85b50;
+}
