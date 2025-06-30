@@ -3,6 +3,7 @@ export const CreateCart = createContext();
 
 const CreateContext = ({children}) => {
   const [data, setData] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const api = "https://jsonplaceholder.typicode.com/posts";
@@ -16,11 +17,15 @@ const CreateContext = ({children}) => {
       });
   }, []);
 
+  const addToCart = (item) => {
+    setCartItems((prevItem) => [...prevItem, item]);
+  }
+
   // console.log(data)
 
   return (
     <>
-    <CreateCart.Provider value={{data}}>
+    <CreateCart.Provider value={{data, cartItems, addToCart}}>
         {children}
     </CreateCart.Provider>
     </>
