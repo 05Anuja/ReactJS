@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import '../index.css'
+import "../index.css";
 const reducer = (state, action) => {
   switch (action.type) {
     case "DETAILS":
@@ -13,14 +13,16 @@ const reducer = (state, action) => {
       };
       // console.log("State ", ...state.name);
       // console.log("State Errors", ...state.errors);
-      return details; 
+      return details;
     case "SET_ERRORS":
       const setErrors = {
         ...state,
         errors: action.errors,
       };
-      console.log("Errors", action.errors)
-      return setErrors; 
+      console.log("Errors", action.errors);
+      return setErrors;
+    case "RESET_FORM":
+      return action.payload;
     default:
       return state;
   }
@@ -77,6 +79,7 @@ const ReducerForm = () => {
       });
     } else {
       console.log("Form Submitted Successfully!");
+      dispatch({type: "RESET_FORM", payload: initialState});
     }
   };
   return (
@@ -84,7 +87,13 @@ const ReducerForm = () => {
       <form action="" onSubmit={formSubmitHandler}>
         <div>
           <label htmlFor="name">Enter Your Full Name:</label>
-          <input type="text" id="name" name="name" onChange={inputHandler} />
+          <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          onChange={inputHandler} 
+          value={formData.name}
+          />
           {formData.errors.name && (
             <small style={{ color: "red" }}>{formData.errors.name}</small>
           )}
@@ -92,7 +101,13 @@ const ReducerForm = () => {
         <br />
         <div>
           <label htmlFor="email">Enter Your Email:</label>
-          <input type="text" id="email" name="email" onChange={inputHandler} />
+          <input 
+          type="text" 
+          id="email" 
+          name="email" 
+          onChange={inputHandler} 
+          value={formData.email}
+          />
           {formData.errors.email && (
             <small style={{ color: "red" }}>{formData.errors.email}</small>
           )}
@@ -105,6 +120,7 @@ const ReducerForm = () => {
             id="password"
             name="password"
             onChange={inputHandler}
+            value={formData.password}
           />
           {formData.errors.password && (
             <small style={{ color: "red" }}>{formData.errors.password}</small>

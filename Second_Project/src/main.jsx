@@ -38,12 +38,12 @@ createRoot(document.getElementById("root")).render(
       </CreateToggle> */}
 
         {/* <ReducerTask1 /> */}
-        {/* <ReducerForm /> */}
+        <ReducerForm />
         {/* <Parent/> */}
         {/* <PracticeTask1/> */}
         {/* <PracticeTask2 /> */}
         {/* <PracticeTask3/> */}
-        <ApiTesting />
+        {/* <ApiTesting /> */}
 
   </StrictMode>
 );
