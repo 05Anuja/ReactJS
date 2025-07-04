@@ -5,8 +5,7 @@ const CreateNews = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  const api =
-    "https://newsapi.org/v2/everything?q=Mumbai&from=2025-07-03&sortBy=popularity&apiKey=55f9d78a9907409ea884d4b121bce8f8";
+  const api = "https://newsapi.org/v2/everything?q=Mumbai&from=2025-07-03&sortBy=popularity&apiKey=55f9d78a9907409ea884d4b121bce8f8";
 
   useEffect(() => {
     fetch(api)
@@ -47,7 +46,7 @@ const CreateNews = () => {
           name="newsSearch"
           id="newsSearch"
           placeholder="Search news by title..."
-          className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
@@ -64,7 +63,7 @@ const CreateNews = () => {
             <p className="text-sm text-gray-500 mb-1">
               {article.source.name} | {article.publishedAt?.slice(0, 10)}
             </p>
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-gray-700 mb-4 truncate">
               {article.description || "No description available."}
             </p>
             <a
