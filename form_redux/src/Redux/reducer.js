@@ -1,20 +1,21 @@
-import { DETAILS } from "./actionTypes"
+import { ADD_USERS, REMOVE_USERS } from "./actionTypes";
 
 const initialState = {
-    name: "",
-    email: "",
-}
+  users: [],
+};
 
-const FormReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case DETAILS:
-            return {
-                ...state,
-                [action.payload.fieldName]: action.payload.value,
-            };
-        default:
-            return state;
-    }
-}
-
-export default FormReducer;
+export const formReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_USERS:
+      return {
+        ...state,
+        users: [...state.users, action.payload],
+      };
+    case REMOVE_USERS:
+        return {
+            ...state, users: state.users.filter(user => user.id !== action.payload)
+        };
+    default:
+      return state;
+  }
+};
