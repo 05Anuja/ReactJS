@@ -18,6 +18,9 @@ import PracticeTask1 from "./Task/PracticeTask1.jsx";
 import PracticeTask2 from "./Task/PracticeTask2.jsx";
 import PracticeTask3 from "./Task/PracticeTask3.jsx";
 import ApiTesting from "./UseEffect/ApiTesting.jsx";
+import Counter from "./Custom_Hook/Counter.jsx";
+import Example1 from "./UseMemo/Example1.jsx";
+import APITesting2 from "./UseEffect/APITesting2.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -38,12 +41,14 @@ createRoot(document.getElementById("root")).render(
       </CreateToggle> */}
 
         {/* <ReducerTask1 /> */}
-        <ReducerForm />
+        {/* <ReducerForm /> */}
         {/* <Parent/> */}
         {/* <PracticeTask1/> */}
         {/* <PracticeTask2 /> */}
         {/* <PracticeTask3/> */}
         {/* <ApiTesting /> */}
-
+        {/* <Counter /> */}
+        {/* <Example1 /> */}
+        <APITesting2 />
   </StrictMode>
 );
