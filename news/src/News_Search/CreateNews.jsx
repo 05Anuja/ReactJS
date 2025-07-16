@@ -5,7 +5,11 @@ const CreateNews = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  const api = "https://newsapi.org/v2/everything?q=Mumbai&from=2025-07-03&sortBy=popularity&apiKey=55f9d78a9907409ea884d4b121bce8f8";
+  const date = new Date().getDate();
+
+  const api = `https://newsapi.org/v2/everything?q=Mumbai&from=2025-07-${
+    date - 2  
+  }&sortBy=popularity&apiKey=55f9d78a9907409ea884d4b121bce8f8`;
 
   useEffect(() => {
     fetch(api)
@@ -36,7 +40,7 @@ const CreateNews = () => {
 
   return (
     <div className="min-h-screen bg-[#fff8dc] px-4 py-10">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">
         Mumbai News
       </h1>
 
@@ -51,19 +55,19 @@ const CreateNews = () => {
         />
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {filterNews.map((article, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between hover:shadow-lg transition duration-200 border"
+            className="bg-white rounded-lg shadow-md p-5 flex flex-col justify-between hover:shadow-lg transition duration-200 border"
           >
-            <h2 className="text-lg font-semibold mb-2 text-gray-800">
+            <h2 className="text-base sm:text-lg font-semibold mb-2 text-gray-800 line-clamp-2">
               {article.title}
             </h2>
             <p className="text-sm text-gray-500 mb-1">
               {article.source.name} | {article.publishedAt?.slice(0, 10)}
             </p>
-            <p className="text-sm text-gray-700 mb-4 truncate">
+            <p className="text-sm text-gray-700 mb-4 line-clamp-3">
               {article.description || "No description available."}
             </p>
             <a
@@ -72,7 +76,7 @@ const CreateNews = () => {
               rel="noopener noreferrer"
               className="mt-auto inline-block"
             >
-              <button className="bg-blue-600 text-white outline-none px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition">
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition">
                 Read Full Article
               </button>
             </a>

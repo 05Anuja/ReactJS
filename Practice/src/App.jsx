@@ -4,6 +4,7 @@ import Counter from './Components/Easy/Counter'
 import ToDo from './Components/Easy/ToDo'
 import Parent from './Components/Easy/Props/Parent'
 import LoggedUser from './Components/Easy/LoggedUser'
+import FetchAPIData from './Components/Medium/FetchAPIData'
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
         <Counter /> */}
         {/* <ToDo /> */}
         {/* <Parent /> */}
-        <LoggedUser />
+        {/* <LoggedUser /> */}
+        <FetchAPIData />
     </>
   )
 }

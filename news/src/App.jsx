@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import CreateNews from './Movie_Search/CreateNews'
+import CreateNews from './News_Search/CreateNews'
 
 const App = () => {
   return (
